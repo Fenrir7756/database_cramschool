@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>補習班學生管理系統</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header>
+    <h1>學生管理系統</h1>
+</header>
+
+    <div class="container">
+        <div class="tab-menu">
+            <h2 onclick="showTab('profile')">個人資料</h2>
+            <h2 onclick="showTab('courses')">課程資訊</h2>
+            <h2 onclick="showTab('progress')">學習狀況</h2>
+            <h2 onclick="showTab('payments')">繳費狀況</h2>
+        </div>
+
+        <div id="profile" class="tab-content active">
+            <h2>個人資料</h2>
+            <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="搜尋"
+                    class="sub-search"
+                    oninput="filterProfiles()"
+            />
+            <div id="profileList">
+                <!-- 個人資料會透過 JavaScript 動態渲染 -->
+            </div>
+            <button class="add-student-button" onclick="addProfile()">新增</button>
+        </div>
+
+        <div id="courses" class="tab-content hidden">
+            <h2>課程資訊</h2>
+            <input
+                    type="text"
+                    id="courseSearchInput"
+                    placeholder="搜尋"
+                    class="sub-search"
+                    oninput="filterCourses()"
+            />
+            <ul id="courseList">
+                <li>數學 - 每週三 18:00~20:00</li>
+                <li>英文 - 每週五 19:00~21:00</li>
+            </ul>
+        </div>
+
+        <div id="progress" class="tab-content hidden">
+            <h2>學習狀況</h2>
+            <input
+                    type="text"
+                    id="progressSearchInput"
+                    placeholder="搜尋"
+                    class="sub-search"
+                    oninput="filterProgress()"
+            />
+            <div id="progressList">
+                <p>數學：85 分</p>
+                <p>英文：90 分</p>
+            </div>
+        </div>
+
+        <div id="payments" class="tab-content hidden">
+            <h2>繳費狀況</h2>
+            <input
+                    type="text"
+                    id="paymentSearchInput"
+                    placeholder="搜尋"
+                    class="sub-search"
+                    oninput="filterPayments()"
+            />
+            <div id="paymentList">
+                <p>2025年5月：已繳</p>
+                <p>2025年6月：未繳</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>
