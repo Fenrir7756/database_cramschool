@@ -12,11 +12,12 @@ body {
 }
 
 .container {
-    max-width: 700px;
-    margin: auto;
+    margin-top: 80px; /* 預留空間給固定的標題 */
+    width: 90%; /* 使用百分比寬度 */
+    margin-left: auto;
+    margin-right: auto;
     background: white;
     padding: 20px;
-    padding-bottom: 50px; /* 確保內容與底部有間距 */
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
