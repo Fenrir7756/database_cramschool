@@ -2,7 +2,8 @@ body {
     font-family: "Segoe UI", "Noto Sans TC", sans-serif;
     background-color: #e0f2e9; /* 淺灰綠色 */
     margin: 0;
-    padding: 0;
+    padding: 0 0 50px 0; /* 底部留 50px 空間 */
+    box-sizing: border-box;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,6 +16,7 @@ body {
     margin: auto;
     background: white;
     padding: 20px;
+    padding-bottom: 50px; /* 確保內容與底部有間距 */
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
@@ -171,6 +173,9 @@ header h1 {
     cursor: pointer; /* 滑鼠移上去顯示手型 */
     transition: background-color 0.3s ease; /* 增加背景色過渡效果 */
 }
+.add-student-button:hover {
+    background-color: #0056b3; /* 深藍色背景 */
+}
 #courseSearchInput,
 #progressSearchInput,
 #paymentSearchInput {
@@ -181,4 +186,25 @@ header h1 {
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
+}
+.search-button {
+    background-color: #436764; /* 綠色背景 */
+    color: white; /* 白色文字 */
+    border: none; /* 移除邊框 */
+    padding: 8px 15px; /* 增加內邊距 */
+    font-size: 16px; /* 調整字體大小 */
+    font-weight: bold; /* 加粗文字 */
+    border-radius: 5px; /* 圓角 */
+    cursor: pointer; /* 滑鼠移上去顯示手型 */
+    transition: background-color 0.3s ease; /* 增加背景色過渡效果 */
+}
+
+.search-button:hover {
+    background-color: #0056b3; /* 深藍色背景 */
+}
+.button-container {
+    display: flex; /* 使用彈性盒模型 */
+    justify-content: center; /* 水平置中 */
+    gap: 10px; /* 按鈕之間的間距 */
+    margin-top: 10px; /* 與其他內容的間距 */
 }

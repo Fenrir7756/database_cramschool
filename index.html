@@ -29,9 +29,25 @@
                     oninput="filterProfiles()"
             />
             <div id="profileList">
-                <!-- 個人資料會透過 JavaScript 動態渲染 -->
+                <div class="profile-section">
+                    <p><strong>姓名：</strong>王大壯</p>
+                    <p><strong>學號：</strong>2023001</p>
+                    <p><strong>電話：</strong>0912345678</p>
+                    <p><strong>Email：</strong>bigstrong@example.com</p>
+                </div>
+                <div class="profile-section">
+                    <p><strong>姓名：</strong>李小美</p>
+                    <p><strong>學號：</strong>2023002</p>
+                    <p><strong>電話：</strong>0987654321</p>
+                    <p><strong>Email：</strong>xiaopretty@example.com</p>
+                </div>
             </div>
-            <button class="add-student-button" onclick="addProfile()">新增</button>
+            <div id="profileListDynamic"><!-- 個人資料會透過 JavaScript 動態渲染 -->
+            </div>
+           <div class="button-container">
+                <button class="search-button" onclick="filterProfiles()">查詢</button>
+                <button class="add-student-button" onclick="addProfile()">新增</button>
+            </div>
         </div>
 
         <div id="courses" class="tab-content hidden">
@@ -74,7 +90,7 @@
                     oninput="filterPayments()"
             />
             <div id="paymentList">
-                <p>2025年5月：已繳</p>
+                <p>2024年5月：已繳</p>
                 <p>2025年6月：未繳</p>
             </div>
         </div>

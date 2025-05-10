@@ -6,15 +6,17 @@ function showTab(tabId) {
     document.getElementById(tabId).classList.add('active');
 }
 function filterProfiles() {
-    const input = document.getElementById('headerSearchInput').value.toLowerCase();
+    const searchInput = document.getElementById('searchInput').value.toLowerCase();
+    const profiles = document.querySelectorAll('#profileList .profile-section');
 
-    const filtered = profilesData.filter(profile =>
-        profile.name.toLowerCase().includes(input) ||
-        profile.phone.includes(input) ||
-        profile.email.toLowerCase().includes(input)
-    );
-
-    renderProfiles(filtered);
+    profiles.forEach(profile => {
+        const textContent = profile.textContent.toLowerCase();
+        if (textContent.includes(searchInput)) {
+            profile.style.display = 'block'; // 顯示符合條件的資料
+        } else {
+            profile.style.display = 'none'; // 隱藏不符合條件的資料
+        }
+    });
 }
 
 
@@ -101,36 +103,39 @@ function clearSearch() {
 }
 
 function addProfile() {
-    const id = prompt('請輸入學號：');
-    const phone = prompt('請輸入電話：');
-    const email = prompt('請輸入 Email：');
+    let name = '';
+    while (!name) {
+        name = prompt('請輸入姓名：');
+        if (!name) alert('姓名為必填！');
+    }
 
-    if (id && phone && email) {
-        const newProfile = { id, phone, email };
-        profilesData.unshift(newProfile);
-        saveToStorage();
-        clearSearch();
-        renderProfiles(profilesData);
-        showTab('profile');
+    let id = '';
+    while (!id) {
+        id = prompt('請輸入學號：');
+        if (!id) alert('學號為必填！');
+    }
+
+    let phone = '';
+    while (!phone) {
+        phone = prompt('請輸入電話：');
+        if (!phone) alert('電話為必填！');
+    }
+
+    let email = '';
+    while (!email) {
+        email = prompt('請輸入 Email：');
+        if (!email) alert('Email 為必填！');
+    }
+
+    if (name && id && phone && email) {
+        const newProfile = { name, id, phone, email };
+        profilesData.unshift(newProfile); // 將新資料加入陣列
+        saveToStorage(); // 儲存至 localStorage
+        renderProfiles(profilesData); // 重新渲染資料
+        clearSearch(); // 清除搜尋框
+        showTab('profile'); // 顯示個人資料頁籤
         alert('新增成功！');
     } else {
         alert('所有欄位皆為必填！');
     }
 }
-
-
-// 儲存至 localStorage
-function saveToStorage() {
-    localStorage.setItem('profilesData', JSON.stringify(profilesData));
-}
-
-// 輸入框按下 Enter 執行搜尋
-document.getElementById('searchInput').addEventListener('keydown', function (e) {
-    if (e.key === 'Enter') {
-        filterProfiles();
-    }
-});
-
-// 初始化顯示
-renderProfiles(profilesData);
-
